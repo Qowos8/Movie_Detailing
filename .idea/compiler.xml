@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.jdks/corretto-18.0.2/caches/modules-2/files-2.1/com.github.bumptech.glide/compiler/4.12.0/75cf5e43fd6e6c6e769e060014feb985284cfae7/compiler-4.12.0.jar" />
+          <entry name="$USER_HOME$/.jdks/corretto-18.0.2/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.12.0/298d793db124809d74ad9a90de5eddc408898c84/annotations-4.12.0.jar" />
+        </processorPath>
+        <module name="Movie_Detailing.main" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="18" />
   </component>
 </project>

@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">homework1</string>
+    <string name="app_name">Movie_Detailing</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name = "transtion_name">element</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -43,4 +43,62 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="movie_name">Avengers:\nEnd Game</string>
+    <string name="janr">Action, Adventure, Fantasy</string>
+    <string name="rate">125 REVIEWS</string>
+    <string name="text">
+    "After the devastating events of Avengers: Infinity War,\nthe universe is in ruins. With the help of remaining allies,\nthe Avengers assemble once more in order to reverse\nThanos' actions and restore balance to the universe."
+</string>
+    <string name="robert_name">Robert\nDowney Jr.</string>
+    <string name="chris_ew_name">Chris\nEvans</string>
+    <string name="mark_name">Mark\nRuffalo</string>
+    <string name="chris_h_name">Chris\nHemsworth</string>
+    <string name="_13">13+</string>
+    <string name="back"><![CDATA[< Back]]></string>
+    <string name="janr_tenet">Action, Sci-fi, Thriller</string>
+    <string name="review_tenet">98 REVIEWS</string>
+    <string name="janr_widow">Action, Adventure, Sci-fi</string>
+    <string name="rate_widow">38 REVIEWS</string>
+    <string name="janr_wonder_woman">Action, Adventure, Fantasy</string>
+    <string name="review_wonder_woman">74 REVIEWS</string>
+    <string name="movies_list">Movies list</string>
+    <string name="_16">16+</string>
+    <string name="tenet_name">Tenet</string>
+    <string name="tenet_time">97 MIN</string>
+    <string name="black_widow_name">Black Widow</string>
+    <string name="black_widow_time">102 MIN</string>
+    <string name="wonder_woman_name">Wonder Woman 1984</string>
+    <string name="wonder_woman_time">120 MIN</string>
+    <string name="avengers_end_game">Avengers: End Game</string>
+    <string name="avengers_time">137 MIN</string>
+    <string name="todo">TODO</string>
+    <string name="app_name1">Кинолюбитель</string>
+    <string name="app_name2">Movier</string>
+    <string name="age_rate">13+</string>
+    <string name="app_name4">Movie Detailing</string>
+    <string name="widow_storyline">
+    "Natasha Romanoff, aka Black Widow, confronts the darker\nparts of her ledger when a dangerous conspiracy with ties\nto her past arises. Pursued by a force that will stop at nothing\nto bring her down, Natasha must deal with her history as a spy,\nand the broken relationships left in her wake long before she\nbecame an Avenger."</string>
+    <string name="tenet_storyline">
+    "A secret agent is given a single word as his weapon and sent\nto prevent the onset of World War III. He must travel through\ntime and bend the laws of nature in order to be successful in\nhis mission."</string>
+    <string name="actor_tenet1">Robert\nPattinson</string>
+    <string name="actor_tenet2">John\nWashington</string>
+    <string name="actor_tenet3">Elizabeth\nDebicki</string>
+    <string name="actor_tenet4">Aaron-Teylor\nJohnson</string>
+    <string name="actor_widow1">Scarlett\nJohansson</string>
+    <string name="actor_widow2">Florence\nPugh</string>
+    <string name="actor_widow3">David\nHarbour</string>
+    <string name="actor_widow4">Rachel\nWeisz</string>
+    <string name="wonder_woman_storyline">
+    "Diana Prince lives quietly among mortals in the vibrant, sleek\n1980s — an era of excess driven by the pursuit of having it all.\nThough shes come into her full powers, she maintains a low\nprofile by curating ancient artifacts, and only performing\nheroic acts incognito. But soon, Diana will have to muster\nall of her strength, wisdom and courage as she finds herself\nsquaring off against Maxwell Lord and the Cheetah, a villainess\nwho possesses superhuman strength and agility."</string>
+    <string name="actor_wonder1">Gal\nGadot</string>
+    <string name="actor_wonder2">Chris\nPine</string>
+    <string name="actor_wonder3">Robin\nWright</string>
+    <string name="actor_wonder4">Connie\nNielsen</string>
+    <string name="avengers_date">26 April 2019</string>
+    <string name="storyline">Storyline</string>
+    <string name="budget">Budget: $</string>
+    <string name="rating">Rate:</string>
+    <string name="time">Runtime:</string>
+
+
 </resources>

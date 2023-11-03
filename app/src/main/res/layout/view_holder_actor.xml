@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        />
+    <ImageView
+        android:id="@+id/robert"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/robert_downey"
+        app:layout_constraintTop_toBottomOf="@id/cast"
+        app:layout_constraintStart_toEndOf="@id/leftline"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/todo"
+        tools:ignore="NotSibling" />
+    <TextView
+        android:id="@+id/robert_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/robert_name"
+        app:layout_constraintTop_toBottomOf="@id/robert"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/robert"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

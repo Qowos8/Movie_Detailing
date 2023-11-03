@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.homework1.DetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#191926"
+        android:orientation="vertical"
+        tools:context=".MovieDetailsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/centerline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_begin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/avenger_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="271dp" />
+
+        <ImageView
+            android:id="@+id/avengers_png"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mask_avenger"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_13"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/movie_name_text"
+            app:layout_constraintStart_toStartOf="@id/leftline"
+
+            />
+
+        <TextView
+            android:id="@+id/movie_name_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_name"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            app:layout_constraintTop_toBottomOf="@id/avenger_line" />
+
+        <TextView
+            android:id="@+id/janr_avengers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/janr"
+            android:textColor="#FF3466"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            app:layout_constraintTop_toBottomOf="@id/movie_name_text" />
+
+        <RatingBar
+            android:id="@+id/rate_bar_avengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/janr_avengers"
+            app:layout_constraintStart_toStartOf="@id/janr_avengers"
+            android:numStars="5"
+            android:rating="4"
+            android:stepSize="0.1"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:progressTint="#FF3365"
+            android:secondaryProgressTint="#FF3365"
+            android:indeterminateTint="#FF3365"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/review_avengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rate"
+            android:textColor="#6D6D80"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/rate_bar_avengers"
+            app:layout_constraintTop_toBottomOf="@id/janr_avengers"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/storyline"
+            android:text="Storyline"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/review_avengers"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/storyline_avengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text"
+            app:layout_constraintTop_toBottomOf="@id/storyline"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            android:textColor="#B3FFFFFF"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cast"
+            android:text="Cast"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/storyline_avengers"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/robert"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:src="@drawable/robert_downey"
+            app:layout_constraintTop_toBottomOf="@id/cast"
+            app:layout_constraintStart_toEndOf="@id/leftline"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/chris_ew"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:src="@drawable/chris_ewans"
+            app:layout_constraintTop_toBottomOf="@id/cast"
+            app:layout_constraintStart_toEndOf="@id/robert"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/mark"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:src="@drawable/mark_ruffalo"
+            app:layout_constraintTop_toBottomOf="@id/cast"
+            app:layout_constraintStart_toEndOf="@id/chris_ew"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/chris_h"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:src="@drawable/chris_hemsworth"
+            app:layout_constraintTop_toBottomOf="@id/cast"
+            app:layout_constraintStart_toEndOf="@id/mark"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/robert_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/robert_name"
+            app:layout_constraintTop_toBottomOf="@id/robert"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/robert" />
+
+        <TextView
+            android:id="@+id/chris_ew_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chris_ew_name"
+            app:layout_constraintTop_toBottomOf="@id/chris_ew"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/chris_ew" />
+
+        <TextView
+            android:id="@+id/mark_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mark_name"
+            app:layout_constraintTop_toBottomOf="@id/mark"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/mark" />
+
+        <TextView
+            android:id="@+id/chris_h_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chris_h_name"
+            app:layout_constraintTop_toBottomOf="@+id/chris_h"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/chris_h" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            app:layout_constraintStart_toStartOf="@id/leftline"
+            app:layout_constraintTop_toTopOf="@id/avengers_png"
+            android:text="@string/back"
+            android:textColor="#6D6D80"
+            android:id="@+id/back_btn"
+            android:layout_marginTop="30dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

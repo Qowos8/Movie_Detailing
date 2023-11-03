@@ -1,61 +1,69 @@
 package com.example.homework1
 
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import com.example.homework1.databinding.ActivityMainBinding
 
+import MVVM.MainViewModel
+import WorkCache.MyWorker
+import WorkCache.Schedule
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import androidx.lifecycle.ViewModelProvider
+import com.example.homework1.databinding.ActivityMainBinding
+import androidx.databinding.DataBindingUtil
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
+import dagger.hilt.android.HiltAndroidApp
+import java.time.Duration
+
+@HiltAndroidApp
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainViewModel
+    private lateinit var animationView: LottieAnimationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val appContext = applicationContext
+        val schedule = Schedule()
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresCharging(true)
+            .build()
+        val requestik = PeriodicWorkRequestBuilder<MyWorker>(Duration.ZERO).apply {
+            setConstraints(constraints)
+            addTag("TEST_BACK")
+        }.build()
+        with (WorkManager.getInstance(appContext)){
+            enqueueUniquePeriodicWork("TEST_BACK", ExistingPeriodicWorkPolicy.REPLACE, requestik)
+        }
+        animationView = findViewById<LottieAnimationView>(R.id.animation)
+        //animationView.setAnimation(R.raw.movie_animate)
+        animationView.repeatCount = LottieDrawable.INFINITE
+        animationView.playAnimation()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.root
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        viewModel.onButtonStartClicked.observe(this) {
+            val fragment = MovieListFragment()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.frame_container, fragment)
+                .commit()
+        }
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
+        val buttonStart: Button = binding.buttonStart
+        buttonStart.setOnClickListener {
+            viewModel.buttonStart()
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+        <data>
+                <variable
+                    name="viewLifecycleOwner"
+                    type="androidx.lifecycle.LifecycleOwner"/>
+        </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:background="@color/cardBackground"
+        android:padding="8dp">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"/>
+            <ImageView
+                android:id="@+id/portrait"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/robert_pattinson"
+                app:layout_constraintTop_toTopOf="@id/bg"
+                app:layout_constraintStart_toStartOf="@id/bg"
+                app:layout_constraintEnd_toEndOf="@id/bg"
+                app:layout_constraintBottom_toBottomOf="@id/line"
+                android:contentDescription="@string/todo"/>
+
+
+            <TextView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:layout_marginTop="235dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/name_actor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Robert Pattinson"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/portrait"
+                app:layout_constraintStart_toStartOf="@id/portrait"
+                app:layout_constraintEnd_toEndOf="@id/portrait"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="255dp"
+                />
+
+
+            <TextView
+                android:id="@+id/role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neil"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/name_actor"
+                app:layout_constraintStart_toStartOf="@id/portrait"
+                app:layout_constraintEnd_toEndOf="@id/portrait"
+
+                 />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>
