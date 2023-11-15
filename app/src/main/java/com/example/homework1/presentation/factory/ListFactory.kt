@@ -1,7 +1,7 @@
-package Factory
+package com.example.homework1.presentation.factory
 
-import Data.MovieRetrofitModule
-import MVVM.ListViewModel
+import com.example.homework1.data.` api`.MovieRetrofitModule
+import com.example.homework1.presentation.viewModels.ListViewModel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -15,12 +15,3 @@ class ListFactory(private val context: Context) : ViewModelProvider.Factory {
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-/*class ListFactory(private val context: Context) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
-            val movieApi = OkhttpModule.OkhttpService
-            return ListViewModel(movieApi) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
-}*/

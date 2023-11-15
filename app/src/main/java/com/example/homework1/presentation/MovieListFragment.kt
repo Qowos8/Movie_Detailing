@@ -1,12 +1,12 @@
-package com.example.homework1
+package com.example.homework1.presentation
 
-import Adapters.MovieAdapter
-import DB.ListDatabase
-import DB.MovieEntity
-import Data.Api_movie
-import Data.OnMovieClickListener
-import Factory.ListFactory
-import MVVM.ListViewModel
+import com.example.homework1.presentation.adapters.MovieAdapter
+import com.example.homework1.data.ListDatabase
+import com.example.homework1.data.MovieEntity
+import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.presentation.factory.ListFactory
+import com.example.homework1.presentation.viewModels.ListViewModel
 import WorkCache.Schedule
 import android.content.Context
 import android.os.Bundle
@@ -15,23 +15,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import kotlinx.coroutines.launch
+import com.example.homework1.R
+import com.example.homework1.presentation.viewModels.MovieDetailsFragment
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.transition.MaterialElevationScale
 import com.google.android.material.transition.MaterialFadeThrough
+import kotlinx.coroutines.launch
 
 class MovieListFragment : Fragment(), OnMovieClickListener {
 

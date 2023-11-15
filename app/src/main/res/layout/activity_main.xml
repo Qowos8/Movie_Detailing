@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="MVVM.MainViewModel" />
+            type="com.example.homework1.presentation.viewModels.MainViewModel" />
     </data>
 
     <FrameLayout
@@ -33,7 +33,7 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/movie_animate"
             android:layout_gravity="center"
-            app:lottie_loop="true"
+            app:lottie_loop="false"
             />
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"

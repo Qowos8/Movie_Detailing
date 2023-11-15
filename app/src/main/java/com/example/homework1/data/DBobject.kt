@@ -1,4 +1,4 @@
-package DB
+package com.example.homework1.data
 import android.provider.BaseColumns
 
 object DB {

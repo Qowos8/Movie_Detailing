@@ -1,7 +1,6 @@
 package Trash
 
-import Data.Actor
-import com.example.homework1.R
+import com.example.homework1.domain.entity.Actor
 
 class ActorDataSource {
     fun getActors(): List<Actor> {

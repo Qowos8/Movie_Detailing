@@ -1,7 +1,7 @@
 package com.example.homework1
 
 
-import MVVM.MainViewModel
+import com.example.homework1.presentation.viewModels.MainViewModel
 import WorkCache.MyWorker
 import WorkCache.Schedule
 import android.os.Bundle
@@ -17,6 +17,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
+import com.example.homework1.presentation.MovieListFragment
 import dagger.hilt.android.HiltAndroidApp
 import java.time.Duration
 

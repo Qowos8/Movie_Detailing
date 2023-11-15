@@ -1,6 +1,4 @@
-package Data
-
-import kotlinx.serialization.SerialName
+package com.example.homework1.domain.entity
 
 data class Detail(
     val id: Int,

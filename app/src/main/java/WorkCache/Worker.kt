@@ -1,25 +1,19 @@
 package WorkCache
 
-import DB.ListDatabase
-import Data.MovieRetrofitModule.apiService
-import Factory.ListFactory
-import MVVM.ListViewModel
+import com.example.homework1.data.ListDatabase
+import com.example.homework1.presentation.factory.ListFactory
+import com.example.homework1.presentation.viewModels.ListViewModel
 import android.app.Application
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.example.homework1.apiKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.coroutineContext
 
 class MyWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
     private lateinit var viewModelStoreOwner: ViewModelStoreOwner

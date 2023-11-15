@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.homework1.DetailsViewModel" />
+            type="com.example.homework1.presentation.viewModels.DetailsViewModel" />
         <variable
             name="viewLifecycleOwner"
             type="androidx.lifecycle.LifecycleOwner"/>
@@ -18,18 +18,17 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:transitionName="elementOflist">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#191926"
         android:orientation="vertical"
-        tools:context=".MovieDetailsFragment">
+        tools:context=".presentation.viewModels.MovieDetailsFragment">
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="element"
+            android:transitionName="transition"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:clickable="true"

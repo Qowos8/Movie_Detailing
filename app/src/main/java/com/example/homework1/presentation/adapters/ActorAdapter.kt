@@ -1,8 +1,7 @@
-package Adapters
+package com.example.homework1.presentation.adapters
 
-import Data.Actor
-import Data.ActorRetrofitModule.apiActorService
-import Data.cast
+import com.example.homework1.domain.entity.Actor
+import com.example.homework1.data.` api`.ActorRetrofitModule.apiActorService
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Looper
@@ -13,16 +12,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.homework1.BASE_IMAGE_URL
+import com.example.homework1.data.` api`.BASE_IMAGE_URL
 import com.example.homework1.R
-import com.example.homework1.apiKey
+import com.example.homework1.data.` api`.apiKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import android.os.Handler
 import com.bumptech.glide.Glide
-import com.example.homework1.BASE_URL
-import com.google.gson.Gson
+import com.example.homework1.data.` api`.BASE_URL
 
 class ActorAdapter(private val context: Context, private val actors: List<Actor>): RecyclerView.Adapter<ActorAdapter.ActorViewHolder>(){
 

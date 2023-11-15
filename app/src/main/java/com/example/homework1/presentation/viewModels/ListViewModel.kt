@@ -1,12 +1,9 @@
-package MVVM
+package com.example.homework1.presentation.viewModels
 
-import DB.ListDatabase
-import DB.MovieEntity
-import DB.toApiMovie
-import Data.Api_movie
-import Data.MovieApi
-import Data.OnMovieClickListener
-import Data.toMovieEntity
+import com.example.homework1.data.ListDatabase
+import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.` api`.MovieApi
+import com.example.homework1.data.` api`.OnMovieClickListener
 import WorkCache.MyWorker
 import WorkCache.Schedule
 import android.annotation.SuppressLint
@@ -14,12 +11,10 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.Room
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
@@ -28,9 +23,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import com.example.homework1.apiKey
-import dagger.hilt.android.internal.Contexts
-import kotlinx.coroutines.CoroutineScope
+import com.example.homework1.data.` api`.apiKey
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.time.Duration

@@ -1,17 +1,10 @@
-package com.example.homework1
+package com.example.homework1.data.` api`
 
-import Data.Detail
-import Data.MovieList
-import android.graphics.Movie
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
-import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
 
 open class BaseFragment : Fragment() {
 

@@ -1,28 +1,26 @@
-package com.example.homework1
+package com.example.homework1.presentation.viewModels
 
 //import Factory.DetailsViewModelFactory
-import DB.DetailDataBase
-import Data.Actor
-import Data.ActorApi
-import Data.Api_movie
-import Data.Api_details
-import Data.DetailApi
-import Data.OnMovieClickListener
+import com.example.homework1.data.DetailDataBase
+import com.example.homework1.domain.entity.Actor
+import com.example.homework1.data.` api`.ActorApi
+import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.` api`.Api_details
+import com.example.homework1.data.` api`.DetailApi
+import com.example.homework1.data.` api`.OnMovieClickListener
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
+import com.example.homework1.data.` api`.apiKey
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class DetailsViewModel(
     private val api: DetailApi,
-    private val actorApi: ActorApi) : ViewModel()  {
+    private val actorApi: ActorApi
+) : ViewModel()  {
     private val movieClick: OnMovieClickListener? = null
     private lateinit var locationsDb: DetailDataBase
     private val _movieDetails = MutableLiveData<List<Api_details>?>()

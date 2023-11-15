@@ -1,4 +1,4 @@
-package Data
+package com.example.homework1.domain.entity
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable

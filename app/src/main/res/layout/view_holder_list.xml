@@ -7,37 +7,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#191926"
-    android:padding="16dp">
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coord"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    android:padding="16dp"
+    >
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:transitionName="element"
+            android:transitionName="transition"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:clickable="true"
             android:focusable="true"
             android:transitionGroup="true"
+            app:cardPreventCornerOverlap="false"
 
-            />
-        <ImageView
-            android:id="@+id/bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bg"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#191926"
+                    tools:ignore="ExtraText">
+                >
 
-            android:layout_gravity="center"
-            android:contentDescription="@string/todo"/>
         <ImageView
             android:id="@+id/picture"
             android:layout_width="0dp"
@@ -50,12 +41,12 @@
             android:contentDescription="@string/todo"/>
         <ImageView
             android:id="@+id/mask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/mask"
-            app:layout_constraintStart_toStartOf="@id/bg"
-            app:layout_constraintTop_toTopOf="@id/bg"
-            app:layout_constraintEnd_toEndOf="@id/bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/todo"/>
         <TextView
             android:id="@+id/name"
@@ -116,6 +107,8 @@
             app:layout_constraintStart_toStartOf="@id/name"
             android:layout_marginTop="5dp"
             android:contentDescription="TODO" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

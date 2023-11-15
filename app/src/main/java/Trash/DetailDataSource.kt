@@ -1,10 +1,5 @@
 package Trash
 
-import Data.Actor
-import Data.Detail
-import android.text.Html
-import com.example.homework1.R
-
 class DetailDataSource {/*
     fun getDetails(): List<Detail> {
         return listOf (

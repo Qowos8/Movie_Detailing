@@ -1,7 +1,6 @@
-package Data
+package com.example.homework1.data.` api`
 
-import okhttp3.ResponseBody
-import retrofit2.Call
+import com.example.homework1.domain.entity.cast
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

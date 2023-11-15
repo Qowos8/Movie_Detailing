@@ -1,7 +1,6 @@
-package Adapters
-import DB.api_details
-import Data.Api_details
-import Data.OnMovieClickListener
+package com.example.homework1.presentation.adapters
+import com.example.homework1.data.` api`.Api_details
+import com.example.homework1.data.` api`.OnMovieClickListener
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -14,20 +13,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import android.util.Log
-import com.example.homework1.BASE_IMAGE_URL
+import com.example.homework1.data.` api`.BASE_IMAGE_URL
 import com.example.homework1.R
-import com.example.homework1.apiKey
+import com.example.homework1.data.` api`.apiKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import Data.DetailRetrofitModule.apiDetailsService
-import android.provider.ContactsContract.RawContacts.Data
+import com.example.homework1.data.` api`.DetailRetrofitModule.apiDetailsService
 import android.widget.Button
 import android.widget.ProgressBar
-import androidx.core.app.NotificationCompat.TvExtender
-import kotlinx.coroutines.delay
-import org.w3c.dom.Text
 
 class DetailAdapter(private val context: Context, private val detail: List<Api_details>): RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
     private var onDetailClickListener: OnMovieClickListener? = null
@@ -128,7 +123,7 @@ class DetailAdapter(private val context: Context, private val detail: List<Api_d
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private suspend fun loadDetailDataFromNetwork(holder: DetailAdapter.DetailViewHolder, movieId: Int) {
+    private suspend fun loadDetailDataFromNetwork(holder: DetailViewHolder, movieId: Int) {
         val handler = Handler(Looper.getMainLooper())
         try {
             val response = apiDetailsService.getDetails(movieId, apiKey)

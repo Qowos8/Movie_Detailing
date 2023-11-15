@@ -1,13 +1,5 @@
 package WorkCache
 
-import DB.ListDatabase
-import Data.MovieRetrofitModule.apiService
-import android.content.Context
-import androidx.work.WorkerParameters
-import com.example.homework1.apiKey
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-
 /*class CoroutineWorker(context: Context, params: WorkerParameters): CoroutineWorker(context, params) {
     private lateinit var locationDb: ListDatabase
     override suspend fun doWork(context: Context): Result {

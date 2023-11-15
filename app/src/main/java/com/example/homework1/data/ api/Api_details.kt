@@ -1,6 +1,6 @@
-package Data
+package com.example.homework1.data.` api`
 
-import DB.DetailsEntity
+import com.example.homework1.data.DetailsEntity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -38,7 +38,7 @@ data class Api_details(
     val adult: String
 
 )
-fun Api_details.toDetailsEntity(): DetailsEntity{
+fun Api_details.toDetailsEntity(): DetailsEntity {
     return DetailsEntity(
         id = this.id,
         poster = this.poster_path,

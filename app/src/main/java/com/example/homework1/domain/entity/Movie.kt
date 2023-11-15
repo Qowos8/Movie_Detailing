@@ -1,8 +1,8 @@
-package Data
+package com.example.homework1.domain.entity
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import retrofit2.Response
+
 @Serializable
 data class MovieList(
     val movies: List<Movie>

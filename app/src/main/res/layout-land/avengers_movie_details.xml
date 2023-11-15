@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.homework1.DetailsViewModel" />
+            type="com.example.homework1.presentation.viewModels.DetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="#191926"
         android:orientation="vertical"
-        tools:context=".MovieDetailsFragment">
+        tools:context=".presentation.viewModels.MovieDetailsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detail_recycler_view"

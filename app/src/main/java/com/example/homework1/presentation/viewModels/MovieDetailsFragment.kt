@@ -1,19 +1,17 @@
-package com.example.homework1
+package com.example.homework1.presentation.viewModels
 
-import Adapters.ActorAdapter
-import Adapters.DetailAdapter
-import DB.DetailDataBase
-import Data.ActorApi
-import Data.ActorRetrofitModule
-import Data.Api_movie
-import Data.Api_details
-import Data.DetailApi
-import Data.DetailRetrofitModule
-import Data.OnMovieClickListener
-import DetailsViewModelFactory
+import com.example.homework1.presentation.adapters.ActorAdapter
+import com.example.homework1.presentation.adapters.DetailAdapter
+import com.example.homework1.data.DetailDataBase
+import com.example.homework1.data.` api`.ActorApi
+import com.example.homework1.data.` api`.ActorRetrofitModule
+import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.` api`.DetailApi
+import com.example.homework1.data.` api`.DetailRetrofitModule
+import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.presentation.factory.DetailsViewModelFactory
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,17 +24,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework1.R
 import com.example.homework1.databinding.ActorDefaultBinding
 import com.example.homework1.databinding.DetailsDefaultBinding
-import com.google.android.material.transition.MaterialContainerTransform
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
+import com.example.homework1.presentation.MovieListFragment
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class MovieDetailsFragment : Fragment(), OnMovieClickListener {
@@ -143,7 +137,7 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
     }
 
     override fun onMovieClicked(movie: Api_movie, movieID: Int) {
-        val fragment = MovieDetailsFragment.newInstance(movieID)
+        val fragment = newInstance(movieID)
         requireFragmentManager().beginTransaction()
             .replace(R.id.frame_container, fragment)
             .addToBackStack(null)

@@ -1,7 +1,7 @@
-package Adapters
-import Data.Api_movie
-import Data.MovieRetrofitModule.apiService
-import Data.OnMovieClickListener
+package com.example.homework1.presentation.adapters
+import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.` api`.MovieRetrofitModule.apiService
+import com.example.homework1.data.` api`.OnMovieClickListener
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
@@ -14,10 +14,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.homework1.BASE_IMAGE_URL
-import com.example.homework1.MovieListFragment
+import com.example.homework1.data.` api`.BASE_IMAGE_URL
+import com.example.homework1.presentation.MovieListFragment
 import com.example.homework1.R
-import com.example.homework1.apiKey
+import com.example.homework1.data.` api`.apiKey
+import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,7 +46,6 @@ class MovieAdapter(private val context: Context, private val movies: List<Api_mo
         holder.movieName.text = movie.original_title
         holder.movieRating.text = movie.vote_average.toString()
         holder.movieTime.text = movie.release_date
-
         holder.itemView.setOnClickListener{
             Log.d("MovieAdapter", "Clicked on movie: ${movie.original_title}, id: ${movie.id}")
             onMovieClickListener?.onMovieClicked(movie, movie.id)
@@ -55,7 +55,7 @@ class MovieAdapter(private val context: Context, private val movies: List<Api_mo
             notifyItemChanged(position)
         }*/
 
-        holder.itemView.setOnClickListener {
+        holder.card.setOnClickListener {
             onMovieClickListener?.onMovieClicked(movie, movie.id)
         }
     }
@@ -71,6 +71,7 @@ class MovieAdapter(private val context: Context, private val movies: List<Api_mo
         //val movieGenre: TextView = itemView.findViewById(R.id.janr)
         val movieRating: TextView = itemView.findViewById(R.id.rate)
         val movieImage: ImageView = itemView.findViewById(R.id.picture)
+        val card: MaterialCardView = itemView.findViewById(R.id.card_view)
         /*val movieBg: ImageView = itemView.findViewById(R.id.bg)
         val movieLike: ImageView = itemView.findViewById(R.id.like)
         val movieRectangle: ImageView = itemView.findViewById(R.id.rectangle)

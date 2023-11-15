@@ -1,6 +1,6 @@
-package Data
+package com.example.homework1.data.` api`
 
-import DB.MovieEntity
+import com.example.homework1.data.MovieEntity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,8 +1,5 @@
 package Trash
 
-import Data.Movie
-import com.example.homework1.R
-import com.example.homework1.R.drawable.movie
 /*
 class MoviesDataSource {
     fun getMovies(): List<Movie>{

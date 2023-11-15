@@ -1,8 +1,7 @@
-package DB
+package com.example.homework1.data
 
-import Data.Api_details
-import Data.Api_list
-import Data.Api_movie
+import com.example.homework1.data.` api`.Api_details
+import com.example.homework1.data.` api`.Api_movie
 import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database
@@ -47,7 +46,9 @@ abstract class ListDatabase : RoomDatabase() {
                 }
             }*/
 
-                    return Room.databaseBuilder(context, ListDatabase::class.java, DB.List_columns.TABLE_NAME)
+                    return Room.databaseBuilder(context, ListDatabase::class.java,
+                        DB.List_columns.TABLE_NAME
+                    )
                         .fallbackToDestructiveMigration() // Добавьте эту строку
                         .build()
             }
@@ -70,7 +71,9 @@ abstract class DetailDataBase : RoomDatabase(){
                 )
             }
         }
-        fun newInstance(applicationContext: Context): DetailDataBase = Room.databaseBuilder(applicationContext, DetailDataBase::class.java, DB.List_columns.TABLE_NAME)
+        fun newInstance(applicationContext: Context): DetailDataBase = Room.databaseBuilder(applicationContext, DetailDataBase::class.java,
+            DB.List_columns.TABLE_NAME
+        )
             .fallbackToDestructiveMigration()
             .build()
         }

@@ -1,8 +1,5 @@
-package Data
+package com.example.homework1.data.` api`
 
-import com.example.homework1.AUTH_TOKEN
-import com.example.homework1.BASE_URL
-import com.example.homework1.apiKey
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
