@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="#191926"
         android:orientation="vertical"
-        tools:context=".presentation.viewModels.MovieDetailsFragment">
+        tools:context=".presentation.MovieDetailsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detail_recycler_view"

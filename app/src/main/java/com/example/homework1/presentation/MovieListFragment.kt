@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.example.homework1.R
-import com.example.homework1.presentation.viewModels.MovieDetailsFragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.homework1.presentation.viewModels
+package com.example.homework1.presentation
 
 import com.example.homework1.presentation.adapters.ActorAdapter
 import com.example.homework1.presentation.adapters.DetailAdapter
@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.homework1.R
 import com.example.homework1.databinding.ActorDefaultBinding
 import com.example.homework1.databinding.DetailsDefaultBinding
-import com.example.homework1.presentation.MovieListFragment
+import com.example.homework1.presentation.viewModels.DetailsViewModel
 import kotlinx.coroutines.launch
 
 

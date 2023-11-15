@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="#191926"
         android:orientation="vertical"
-        tools:context=".presentation.viewModels.MovieDetailsFragment">
+        tools:context=".presentation.MovieDetailsFragment">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
