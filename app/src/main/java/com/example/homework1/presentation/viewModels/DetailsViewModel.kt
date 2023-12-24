@@ -3,18 +3,18 @@ package com.example.homework1.presentation.viewModels
 //import Factory.DetailsViewModelFactory
 import com.example.homework1.data.DetailDataBase
 import com.example.homework1.domain.entity.Actor
-import com.example.homework1.data.` api`.ActorApi
-import com.example.homework1.data.` api`.Api_movie
-import com.example.homework1.data.` api`.Api_details
-import com.example.homework1.data.` api`.DetailApi
-import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.data.api.ActorApi
+import com.example.homework1.data.api.Api_movie
+import com.example.homework1.data.api.Api_details
+import com.example.homework1.data.api.DetailApi
+import com.example.homework1.data.api.OnMovieClickListener
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.homework1.data.` api`.apiKey
+import com.example.homework1.data.api.apiKey
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(

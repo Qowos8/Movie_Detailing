@@ -1,6 +1,6 @@
 package com.example.homework1.presentation.factory
 
-import com.example.homework1.data.` api`.MovieRetrofitModule
+import com.example.homework1.data.api.MovieRetrofitModule
 import com.example.homework1.presentation.viewModels.ListViewModel
 import android.content.Context
 import androidx.lifecycle.ViewModel

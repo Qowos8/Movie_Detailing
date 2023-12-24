@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_view"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cardBackground">
+    <TextView
+        android:id="@+id/upper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movie list"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/lem"
+        app:layout_constraintStart_toEndOf="@id/lem"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        />
+    <ImageView
+        android:id="@+id/lem"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/datingapp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        />
+<androidx.recyclerview.widget.RecyclerView
+android:id="@+id/recycler_view"
+android:layout_height="wrap_content"
+android:layout_width="match_parent"
+    app:layout_constraintTop_toBottomOf="@id/lem"
+    android:layout_marginTop="16dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

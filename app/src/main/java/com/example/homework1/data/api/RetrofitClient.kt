@@ -1,4 +1,4 @@
-package com.example.homework1.data.` api`
+package com.example.homework1.data.api
 
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -7,7 +7,7 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-class MovieApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String) : Interceptor {
+class MovieApiHeaderInterceptor(private val apiKey: String) : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val originalRequest = chain.request()
             val originalHttpUrl = originalRequest.url
@@ -22,7 +22,7 @@ class MovieApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String) 
             return chain.proceed(newRequest)
         }
     }
-class DetailApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String) : Interceptor {
+class DetailApiHeaderInterceptor(private val apiKey: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val originalHttpUrl = originalRequest.url
@@ -37,7 +37,7 @@ class DetailApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String)
         return chain.proceed(newRequest)
     }
 }
-class ActorApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String) : Interceptor {
+class ActorApiHeaderInterceptor(private val apiKey: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val originalHttpUrl = originalRequest.url
@@ -56,7 +56,7 @@ class ActorApiHeaderInterceptor(private val apiKey: String, AUTH_TOKEN: String) 
 object MovieRetrofitModule {
     private val client = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .addInterceptor(MovieApiHeaderInterceptor(apiKey, AUTH_TOKEN))
+        .addInterceptor(MovieApiHeaderInterceptor(apiKey))
         .build()
 
     private val json = Json {
@@ -75,7 +75,7 @@ val movieRetrofit = MovieRetrofitModule.retrofit.newBuilder()
     .client(
         OkHttpClient().newBuilder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor(MovieApiHeaderInterceptor(apiKey, AUTH_TOKEN))
+            .addInterceptor(MovieApiHeaderInterceptor(apiKey))
             .build()
     )
     .build()
@@ -84,7 +84,7 @@ val movieRetrofit = MovieRetrofitModule.retrofit.newBuilder()
 object DetailRetrofitModule{
         private val client = OkHttpClient().newBuilder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor(DetailApiHeaderInterceptor(apiKey, AUTH_TOKEN))
+            .addInterceptor(DetailApiHeaderInterceptor(apiKey))
             .build()
 
         private val json = Json {
@@ -104,7 +104,7 @@ val detailRetrofit = DetailRetrofitModule.retrofit.newBuilder()
     .client(
         OkHttpClient().newBuilder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor(DetailApiHeaderInterceptor(apiKey, AUTH_TOKEN))
+            .addInterceptor(DetailApiHeaderInterceptor(apiKey))
             .build()
     )
     .build()
@@ -112,7 +112,7 @@ val detailRetrofit = DetailRetrofitModule.retrofit.newBuilder()
 object ActorRetrofitModule {
     val ActorClient = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .addInterceptor(ActorApiHeaderInterceptor(apiKey, AUTH_TOKEN))
+        .addInterceptor(ActorApiHeaderInterceptor(apiKey))
         .build()
     private val json = Json {
         ignoreUnknownKeys = true

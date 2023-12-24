@@ -3,12 +3,12 @@ package com.example.homework1.presentation
 import com.example.homework1.presentation.adapters.ActorAdapter
 import com.example.homework1.presentation.adapters.DetailAdapter
 import com.example.homework1.data.DetailDataBase
-import com.example.homework1.data.` api`.ActorApi
-import com.example.homework1.data.` api`.ActorRetrofitModule
-import com.example.homework1.data.` api`.Api_movie
-import com.example.homework1.data.` api`.DetailApi
-import com.example.homework1.data.` api`.DetailRetrofitModule
-import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.data.api.ActorApi
+import com.example.homework1.data.api.ActorRetrofitModule
+import com.example.homework1.data.api.Api_movie
+import com.example.homework1.data.api.DetailApi
+import com.example.homework1.data.api.DetailRetrofitModule
+import com.example.homework1.data.api.OnMovieClickListener
 import com.example.homework1.presentation.factory.DetailsViewModelFactory
 import android.annotation.SuppressLint
 import android.content.Context

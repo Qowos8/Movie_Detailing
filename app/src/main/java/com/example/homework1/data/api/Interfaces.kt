@@ -1,4 +1,4 @@
-package com.example.homework1.data.` api`
+package com.example.homework1.data.api
 
 import com.example.homework1.domain.entity.cast
 import retrofit2.Response

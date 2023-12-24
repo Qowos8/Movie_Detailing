@@ -1,7 +1,7 @@
 package com.example.homework1.data
 
-import com.example.homework1.data.` api`.Api_details
-import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.api.Api_details
+import com.example.homework1.data.api.Api_movie
 import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database

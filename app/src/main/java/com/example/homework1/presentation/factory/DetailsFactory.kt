@@ -1,8 +1,8 @@
 package com.example.homework1.presentation.factory
 
-import com.example.homework1.data.` api`.ActorApi
+import com.example.homework1.data.api.ActorApi
 import com.example.homework1.presentation.viewModels.DetailsViewModel
-import com.example.homework1.data.` api`.DetailApi
+import com.example.homework1.data.api.DetailApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 

@@ -1,7 +1,7 @@
 package com.example.homework1.data
 
-import com.example.homework1.data.` api`.Api_details
-import com.example.homework1.data.` api`.Api_movie
+import com.example.homework1.data.api.Api_details
+import com.example.homework1.data.api.Api_movie
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

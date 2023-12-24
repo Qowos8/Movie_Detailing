@@ -1,9 +1,9 @@
 package com.example.homework1.presentation.viewModels
 
 import com.example.homework1.data.ListDatabase
-import com.example.homework1.data.` api`.Api_movie
-import com.example.homework1.data.` api`.MovieApi
-import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.data.api.Api_movie
+import com.example.homework1.data.api.MovieApi
+import com.example.homework1.data.api.OnMovieClickListener
 import WorkCache.MyWorker
 import WorkCache.Schedule
 import android.annotation.SuppressLint
@@ -23,7 +23,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import com.example.homework1.data.` api`.apiKey
+import com.example.homework1.data.api.apiKey
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.time.Duration

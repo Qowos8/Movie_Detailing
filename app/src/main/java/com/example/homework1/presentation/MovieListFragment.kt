@@ -3,8 +3,8 @@ package com.example.homework1.presentation
 import com.example.homework1.presentation.adapters.MovieAdapter
 import com.example.homework1.data.ListDatabase
 import com.example.homework1.data.MovieEntity
-import com.example.homework1.data.` api`.Api_movie
-import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.data.api.Api_movie
+import com.example.homework1.data.api.OnMovieClickListener
 import com.example.homework1.presentation.factory.ListFactory
 import com.example.homework1.presentation.viewModels.ListViewModel
 import WorkCache.Schedule

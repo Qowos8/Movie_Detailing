@@ -1,4 +1,4 @@
-package com.example.homework1.data.` api`
+package com.example.homework1.data.api
 
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope

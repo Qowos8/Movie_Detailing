@@ -1,6 +1,6 @@
 package com.example.homework1.presentation.adapters
-import com.example.homework1.data.` api`.Api_details
-import com.example.homework1.data.` api`.OnMovieClickListener
+import com.example.homework1.data.api.Api_details
+import com.example.homework1.data.api.OnMovieClickListener
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +13,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import android.util.Log
-import com.example.homework1.data.` api`.BASE_IMAGE_URL
+import com.example.homework1.data.api.BASE_IMAGE_URL
 import com.example.homework1.R
-import com.example.homework1.data.` api`.apiKey
+import com.example.homework1.data.api.apiKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import com.example.homework1.data.` api`.DetailRetrofitModule.apiDetailsService
+import com.example.homework1.data.api.DetailRetrofitModule.apiDetailsService
 import android.widget.Button
 import android.widget.ProgressBar
 

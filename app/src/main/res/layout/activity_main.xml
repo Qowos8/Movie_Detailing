@@ -58,6 +58,7 @@
             android:textColor="#FFDAB9"
             android:background="#191926"
             android:layout_gravity="center"
-            android:layout_marginTop="230dp"/>
+            android:layout_marginTop="230dp"
+            />
     </FrameLayout>
 </layout>
