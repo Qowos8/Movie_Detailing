@@ -3,4 +3,4 @@ Movie Detailing
 Смотрите review последних новинок кино.
 https://www.themoviedb.org/ REST API для предоставления информации о популярных фильмах, построенное с использованием MVVM архитектуры.
 Screenshots
-![Merged_document (1)](https://github.com/Qowos8/Movie_Detailing/assets/89923159/2dbfb69b-f691-44c1-899c-cc69f3c1473b)
+![MergeResult_2023_12_24_08_17_05](https://github.com/Qowos8/Movie_Detailing/assets/89923159/e0b11424-723c-4a81-8c85-84f3938ebb78)
