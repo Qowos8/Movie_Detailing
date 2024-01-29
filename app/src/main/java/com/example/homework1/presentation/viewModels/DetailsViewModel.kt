@@ -31,7 +31,6 @@ class DetailsViewModel(
     val _navigateBack = MutableLiveData<Int>()
     private var did: Int = 1
     private val _isLoading = MutableLiveData<Boolean>()
-    private lateinit var saves: Unit
     fun initDatabase(context: Context) {
         locationsDb = DetailDataBase.newInstance(context.applicationContext)
     }
@@ -45,51 +44,37 @@ class DetailsViewModel(
         did = movie_index
     }
 
-    fun setDetails(context: Context) {
+    fun setDetails() {
         viewModelScope.launch {
             try {
-                //if (listEntity == null || listEntity.isEmpty()) {
                     val detailResponse = api.getDetails(did, apiKey)
                     if (detailResponse.isSuccessful) {
                         val details = detailResponse.body()
                         if (details != null) {
                             _movieDetails.value = listOf(details)
-                            /*val saveDetails = listOf(details)
-                            initDatabase(context)
-                            locationsDb.DetailsDao().getDetail(saveDetails)
-                            saves = locationsDb.DetailsDao().getDetail(saveDetails)*/
                         } else {
                             Log.d("DetailViewModel", "Error getDetails: Response body is null")
                         }
                     } else {
                         Log.d("DetailViewModel", "Error getMovies: ${detailResponse.code()}")
                     }
-                //}
-                /*else{
-                    val apiDetails = listEntity
-                    Log.d("apiDetails", "$apiDetails")
-                    _movieDetails.value = apiDetails
-                }*/
-            } catch (e: Exception) {
-                /*initDatabase(context)
-                if (listEntity == null || listEntity.isEmpty())
-                    listEntity = withContext(Dispatchers.IO) {
-                        locationsDb.DetailsDao().insertDetail()
-                    }
-                Log.d("listEntity", "$listEntity")
 
-                if (listEntity != null) {
-                    val apiDetails = listEntity
-                    _movieDetails.value = apiDetails
-                } else {
-                    _movieDetails.value = emptyList()
-                }
-                closeDatabase()*/
+            } catch (e: Exception) {
                 Log.e("DetailViewModel", "Exception: ${e.message}", e)
             }
         }
     }
+    /*fun loadDetailsRx() {
+        val response = api.getDetails(did)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .flatMap { details ->
+                Single.fromCallable {
+                    _movieDetails.postValue(listOf(details))
+                }
+            }
 
+    }*/
     @SuppressLint("SuspiciousIndentation")
     fun setActor(context: Context){
         viewModelScope.launch {
@@ -114,7 +99,7 @@ class DetailsViewModel(
     }
 
 
-    fun navigateBack(movieID: Int){
+    fun navigateBacked(movieID: Int){
         _navigateBack.value = movieID
     }
     fun onMovieClicked(movie: Api_movie, movieID: Int) {

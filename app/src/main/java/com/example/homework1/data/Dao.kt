@@ -19,7 +19,7 @@ interface MovieDao{
     fun insertList(): List<Api_movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun getList(movies: List<Api_movie>)
+    fun getList(movies: List<Api_movie>)
 }
 @Dao
 interface DetailDao{

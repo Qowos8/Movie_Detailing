@@ -10,7 +10,7 @@ class ListFactory(private val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
             val movieApi = MovieRetrofitModule.apiService
-            return ListViewModel(movieApi, context) as T
+            return ListViewModel(movieApi) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

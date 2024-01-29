@@ -28,22 +28,16 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
     override fun doWork(): Result {
         CoroutineScope(Dispatchers.IO).launch {
             Log.d("MyWorker", "Start work at ${System.currentTimeMillis()}")
-            if (appContext is Application) {
-                app = appContext as Application
-            }
+            app = appContext
             if (ConnectionChecker.isOnline()) {
                 Log.d("MyWorker", "Start work at ${System.currentTimeMillis()}")
-                //locationsDb = ListDatabase.newInstance(applicationContext)
-                //val mainHandler = Handler(Looper.getMainLooper())
-                //mainHandler.post {
                 val viewModelFactory = ListFactory(applicationContext)
                 val viewModel = ViewModelProvider(
                     ViewModelStore(),
                     viewModelFactory
                 )[ListViewModel::class.java]
-                //viewModel.initDatabase(applicationContext)
                 locationsDb = ListDatabase.newInstance(applicationContext)
-                viewModel.loadMoviesOnBackground(applicationContext)
+                //viewModel.loadMoviesOnBackground(applicationContext)
                 if(locationsDb != null){
                     Log.d("MyWorker", "Success at ${System.currentTimeMillis()}")
                 }

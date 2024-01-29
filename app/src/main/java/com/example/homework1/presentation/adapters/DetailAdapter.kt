@@ -1,4 +1,5 @@
 package com.example.homework1.presentation.adapters
+
 import com.example.homework1.data.api.Api_details
 import com.example.homework1.data.api.OnMovieClickListener
 import android.annotation.SuppressLint
@@ -23,8 +24,13 @@ import java.lang.Exception
 import com.example.homework1.data.api.DetailRetrofitModule.apiDetailsService
 import android.widget.Button
 import android.widget.ProgressBar
+import com.bumptech.glide.annotation.GlideModule
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
 
-class DetailAdapter(private val context: Context, private val detail: List<Api_details>): RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
+class DetailAdapter(private val context: Context, private val detail: List<Api_details>) :
+    RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
     private var onDetailClickListener: OnMovieClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
         val view: View = LayoutInflater.from(context)
@@ -40,12 +46,13 @@ class DetailAdapter(private val context: Context, private val detail: List<Api_d
     override fun getItemViewType(position: Int): Int {
         return position.toInt()
     }
+
     @SuppressLint("SuspiciousIndentation", "NotifyDataSetChanged")
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
 
         val details = detail[position]
         val fullImageUrl: String? = BASE_IMAGE_URL + details.poster_path
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch {
             loadDetailDataFromNetwork(holder, details.id)
             Log.d("DetailAdapter", "Received ${detail.size} details")
         }
@@ -53,16 +60,16 @@ class DetailAdapter(private val context: Context, private val detail: List<Api_d
             loadImage(fullImageUrl, holder.detailPoster)
         }
         //if (holder.isDataLoaded) {
-            holder.progressBar.visibility = View.VISIBLE
-            holder.detailName.text = details.original_title
-            holder.detailRating.text = details.vote_average.toString()
-            holder.detailStoryline.text = details.overview
-            holder.budget.text = details.budget
-            holder.release.text = details.release_data
-            holder.ageRate.text = details.runtime
-            holder.language.text = details.original_language
-            holder.progressBar.visibility = View.GONE
-            Log.d("DetailAdapter", "Received ${detail.size} details")
+        holder.progressBar.visibility = View.VISIBLE
+        holder.detailName.text = details.original_title
+        holder.detailRating.text = details.vote_average.toString()
+        holder.detailStoryline.text = details.overview
+        holder.budget.text = details.budget
+        holder.release.text = details.release_data
+        holder.ageRate.text = details.runtime
+        holder.language.text = details.original_language
+        holder.progressBar.visibility = View.GONE
+        Log.d("DetailAdapter", "Received ${detail.size} details")
 
         holder.runtime_word.visibility = View.VISIBLE
         holder.min_word.visibility = View.VISIBLE
@@ -118,8 +125,6 @@ class DetailAdapter(private val context: Context, private val detail: List<Api_d
         val button_back: Button = itemView.findViewById(R.id.back_btn)
 
 
-
-
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -143,28 +148,43 @@ class DetailAdapter(private val context: Context, private val detail: List<Api_d
                     } catch (e: Exception) {
                         Log.d("Poster:", "Error with image")
                     }
-                    //holder.release.text = detailList.release_data
-                    //holder.budget.text = detailList.budget
-                    //holder.detailName.text = detailList.original_title
-                    //holder.detailGenre.text = detailList.genres
-                    //holder.detailRating.text = detailList.vote_average.toString()
-                    //holder.detailStoryline.text = detailList.overview
-                    //holder.detailReview.text = detailList.release_data
-                    //holder.ageRate.text = detailList.runtime
                 }
             }
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             Log.d("ListAdapter", "Exception")
         }
     }
+
+
+
+    /*@SuppressLint("SuspiciousIndentation", "NotifyDataSetChanged")
+    private fun loadDetailDataFromNetwork2(holder: DetailViewHolder, movieId: Int) {
+        apiDetailsService.getDetails(movieId, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSuccess { details ->
+                val fullImageUrl = BASE_IMAGE_URL + details.poster_path
+                Log.d("fullImageURL", fullImageUrl)
+                Glide.with(context)
+                    .load(fullImageUrl)
+                    .placeholder(R.drawable.background)
+                    .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
+                    .into(holder.detailPoster)
+            }
+            .doOnError { error ->
+                Log.d("ListAdapter", "Error loading details: ${error.message}", error)
+            }
+            .subscribe()
+    }*/
+
+
+
     private fun loadImage(imageUrl: String, imageView: ImageView) {
         Glide.with(context)
             .load(imageUrl)
             .placeholder(R.drawable.background)
             .into(imageView)
     }
-
 
 
 }

@@ -58,7 +58,8 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
             container,
             false
         )
-        actorBinding = DataBindingUtil.inflate(
+        actorBinding =
+            DataBindingUtil.inflate(
             inflater,
             R.layout.actor_default,
             container,
@@ -67,16 +68,21 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
 
         val apiDetailsService: DetailApi = DetailRetrofitModule.retrofit.create(DetailApi::class.java)
         val apiActorService: ActorApi = ActorRetrofitModule.retrofit.create(ActorApi::class.java)
+
         detailRecyclerView = detailBinding.root.findViewById(R.id.detail_recycler_view)
         actorRecyclerVIew = detailBinding.root.findViewById(R.id.actor_recycler_view)
+
         val layoutManager = LinearLayoutManager(requireContext())
         val horizontalLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         detailRecyclerView.layoutManager = layoutManager
         actorRecyclerVIew.layoutManager = horizontalLayoutManager
+
         adapter = DetailAdapter(requireContext(), emptyList())
         actorAdapter = ActorAdapter(requireContext(), emptyList())// Пустой адаптер
+
         detailRecyclerView.adapter = adapter
         actorRecyclerVIew.adapter = actorAdapter
+
         var movie_index = arguments?.getInt(ARG_MOVIE_ID, -1) ?: -1
         val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar)
         Log.d("movie_index", "$movie_index")
@@ -86,7 +92,7 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
         viewModel.setMovieID(movie_index)
         viewModel.setActor(requireContext())
         Log.d("viewModel:", "viewModel = $viewModel")
-        viewModel.setDetails(requireContext())
+        viewModel.setDetails()
         viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.movieDetails.observe(viewLifecycleOwner){movieDetails ->
                     adapter = DetailAdapter(requireContext(), movieDetails!!)
@@ -103,7 +109,7 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
                 actorRecyclerVIew.adapter = actorAdapter
             }
         }
-        //actorBinding.lifecycleOwner = viewLifecycleOwner
+
         detailBinding.viewModel = viewModel
         detailBinding.lifecycleOwner = viewLifecycleOwner
         Log.d("MovieDetailsFragment", "Received movieID in onCreateView: $movie_index")
@@ -111,10 +117,7 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
 
         detailRecyclerView.layoutManager = layoutManager
         actorRecyclerVIew.layoutManager = horizontalLayoutManager
-        /*sharedElementEnterTransition = MaterialContainerTransform().apply {
-            scrimColor = Color.TRANSPARENT
-            //drawingViewId = R.id.
-        }*/
+
         return detailBinding.root
     }
 
@@ -128,7 +131,7 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
                 .replace(R.id.frame_container, fragment)
                 .addToBackStack(null)
                 .commit()
-            viewModel.navigateBack(movieID)
+            viewModel.navigateBacked(movieID)
 
         }
         postponeEnterTransition()
@@ -146,7 +149,6 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
 
     companion object {
         private const val ARG_MOVIE_ID = "movie_id"
-        const val NET_ID = "id123"
 
         fun newInstance(movieID: Int): MovieDetailsFragment {
 
@@ -157,10 +159,6 @@ class MovieDetailsFragment : Fragment(), OnMovieClickListener {
             Log.d("MovieDetailsFragment", "Created new instance with movieID: $movieID")
             return fragment
         }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        //locationsDb.close()
     }
 
 }

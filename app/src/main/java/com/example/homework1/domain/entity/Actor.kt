@@ -1,28 +1,29 @@
 package com.example.homework1.domain.entity
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+
 @Serializable
 data class cast(
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("cast")
+    @SerialName("cast")
     val cast: List<Actor>
 
 )
 @Serializable
 data class Actor(
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("original_name")
+    @SerialName("original_name")
     val name: String,
-    @SerializedName("character")
+    @SerialName("character")
     val role: String,
-    @SerializedName("profile_path")
+    @SerialName("profile_path")
     val profile_path: String,
-    @SerializedName("cast_id")
+    @SerialName("cast_id")
     val cast_id: Int,
-    @SerializedName("order")
+    @SerialName("order")
     val order: Int
 ) {
 }

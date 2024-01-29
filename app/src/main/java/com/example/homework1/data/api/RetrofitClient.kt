@@ -6,7 +6,9 @@ import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+
 class MovieApiHeaderInterceptor(private val apiKey: String) : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val originalRequest = chain.request()
@@ -67,18 +69,11 @@ object MovieRetrofitModule {
         .client(client)
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
 
     val apiService: MovieApi = retrofit.create(MovieApi::class.java)
 }
-val movieRetrofit = MovieRetrofitModule.retrofit.newBuilder()
-    .client(
-        OkHttpClient().newBuilder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor(MovieApiHeaderInterceptor(apiKey))
-            .build()
-    )
-    .build()
 
 
 object DetailRetrofitModule{
@@ -95,19 +90,11 @@ object DetailRetrofitModule{
             .client(client)
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
 
         val apiDetailsService: DetailApi = retrofit.create(DetailApi::class.java)
     }
-
-val detailRetrofit = DetailRetrofitModule.retrofit.newBuilder()
-    .client(
-        OkHttpClient().newBuilder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor(DetailApiHeaderInterceptor(apiKey))
-            .build()
-    )
-    .build()
 
 object ActorRetrofitModule {
     val ActorClient = OkHttpClient().newBuilder()
@@ -121,6 +108,7 @@ object ActorRetrofitModule {
         .client(ActorClient)
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
 
     val apiActorService: ActorApi = retrofit.create(ActorApi::class.java)
